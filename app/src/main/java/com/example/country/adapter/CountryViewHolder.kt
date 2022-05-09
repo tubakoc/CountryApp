@@ -23,10 +23,7 @@ class CountryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         countryName = itemView.findViewById(R.id.countryName)
         countryRegion = itemView.findViewById(R.id.countryRegion)
 
-        itemView.setOnClickListener {
-            val action = FeedFragmentDirections.actionFeedFragmentToCountryFragment()
-            Navigation.findNavController(it).navigate(action)
-        }
+
     }
 
     fun bindData(context: Context,country: Country)
@@ -34,5 +31,9 @@ class CountryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         countryName.text = country.name
         countryRegion.text = country.region
         travelImage.downloadFromUrl(country.imageUrl, placeholderProgressBar(context))
+        itemView.setOnClickListener {
+            val action = FeedFragmentDirections.actionFeedFragmentToCountryFragment(country.uuid)
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 }
