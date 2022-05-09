@@ -7,7 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
 
-// AndroidViewModel extend etmek daha güvenli class yapılmıs oluyor appcontext mantığ
+// AndroidViewModel extend etmek daha güvenli class yapılmıs oluyor appcontext mantığı
 //bu classtan obje oluşturmayacağımız ve sadece implement edeceğimiz için abstraact yaptık
 abstract class BaseViewModel(application : Application) : AndroidViewModel(application),CoroutineScope {
 

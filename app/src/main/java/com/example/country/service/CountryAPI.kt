@@ -9,9 +9,9 @@ interface CountryAPI {
     //GET, POST
     //https://raw.githubusercontent.com/atilsamancioglu/IA19-DataSetCountries/master/countrydataset.json
 
+
     //BASE_URL -> https://raw.githubusercontent.com/
     //EXTENSION ->atilsamancioglu/IA19-DataSetCountries/master/countrydataset.json
-
 
     //veriyi sadece bi kere alacağımız için SİNGLE api daki veri güncellenmiyor
     @GET("atilsamancioglu/IA19-DataSetCountries/master/countrydataset.json")

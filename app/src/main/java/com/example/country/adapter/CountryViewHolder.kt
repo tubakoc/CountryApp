@@ -17,7 +17,6 @@ class CountryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     var travelImage : ImageView
     var countryName : TextView
     var countryRegion : TextView
-
     init {
         travelImage = itemView.findViewById(R.id.travelImage)
         countryName = itemView.findViewById(R.id.countryName)
