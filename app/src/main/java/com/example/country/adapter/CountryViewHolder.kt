@@ -4,16 +4,18 @@ import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.databinding.ViewDataBinding
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.country.R
+import com.example.country.databinding.RvcCountryBinding
 import com.example.country.model.Country
 import com.example.country.util.downloadFromUrl
 import com.example.country.util.placeholderProgressBar
 import com.example.country.view.FeedFragmentDirections
 
-class CountryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-
+class CountryViewHolder(var view: RvcCountryBinding): RecyclerView.ViewHolder(view.root) {
+/*
     var travelImage : ImageView
     var countryName : TextView
     var countryRegion : TextView
@@ -27,6 +29,7 @@ class CountryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     fun bindData(context: Context,country: Country)
     {
+
         countryName.text = country.name
         countryRegion.text = country.region
         travelImage.downloadFromUrl(country.imageUrl, placeholderProgressBar(context))
@@ -34,5 +37,6 @@ class CountryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
             val action = FeedFragmentDirections.actionFeedFragmentToCountryFragment(country.uuid)
             Navigation.findNavController(it).navigate(action)
         }
-    }
+
+    }*/
 }

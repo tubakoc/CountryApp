@@ -5,18 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.example.country.R
 import com.example.country.databinding.FragmentCountryBinding
 import com.example.country.util.downloadFromUrl
 import com.example.country.util.placeholderProgressBar
 import com.example.country.viewmodel.CountryViewModel
+import kotlinx.android.synthetic.main.fragment_country.*
 
 class CountryFragment : Fragment() {
 
     private lateinit var viewModel : CountryViewModel
-    lateinit var binding : FragmentCountryBinding
+    private lateinit var dataBinding : FragmentCountryBinding
     private var countryUuid = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,9 +31,8 @@ class CountryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentCountryBinding.inflate(inflater)
-
-       return binding.root
+        dataBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_country,container,false)
+       return dataBinding.root
     }
 
 
@@ -53,15 +55,18 @@ class CountryFragment : Fragment() {
     {
         viewModel.countryLiveData.observe(viewLifecycleOwner, Observer {country ->
             country?.let {
-                binding.countryName.text = country.name
-                binding.countryCapital.text = country.capital
-                binding.countryCurrency.text = country.currency
-                binding.countryLanguage.text = country.language
-                binding.countryRegion.text = country.region
-                context?.let {
-                    binding.countryImage.downloadFromUrl(country.imageUrl, placeholderProgressBar(it))
-                }
 
+                dataBinding.selectedCountry = country
+                /*
+                countryName.text = country.name
+                countryCapital.text = country.capital
+                countryCurrency.text = country.currency
+                countryLanguage.text = country.language
+                countryRegion.text = country.region
+                context?.let {
+                    countryImage.downloadFromUrl(country.imageUrl, placeholderProgressBar(it))
+                }
+                */
             }
         })
     }
